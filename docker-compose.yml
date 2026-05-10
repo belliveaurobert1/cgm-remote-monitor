@@ -17,7 +17,8 @@ services:
 
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
-    ports: "1337:1337"
+    ports: 
+      - "1337:1337"
     container_name: nightscout
     restart: always
     depends_on:
