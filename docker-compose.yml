@@ -34,7 +34,6 @@ services:
       ### Variables for the container
       NODE_ENV: production
       TZ: EST
-      PORT: 1337
 
       ### Overridden variables for Docker Compose setup
       # The `nightscout` service can use HTTP, because we use `traefik` to serve the HTTPS
