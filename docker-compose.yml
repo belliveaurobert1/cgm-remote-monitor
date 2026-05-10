@@ -26,7 +26,7 @@ services:
       - 'traefik.enable=true'
       # Change the below Host from `localhost` to be the web address where Nightscout is running.
       # Also change the email address in the `traefik` service below.
-      - 'traefik.http.routers.nightscout.rule=Host(`10.187.40.2:1337`)'
+      - 'traefik.http.routers.nightscout.rule=Host(`10.187.40.2`)'
       - 'traefik.http.routers.nightscout.entrypoints=websecure'
       - 'traefik.http.routers.nightscout.tls.certresolver=le'
     logging: *default-logging
@@ -34,6 +34,7 @@ services:
       ### Variables for the container
       NODE_ENV: production
       TZ: EST
+      PORT: 1337
 
       ### Overridden variables for Docker Compose setup
       # The `nightscout` service can use HTTP, because we use `traefik` to serve the HTTPS
