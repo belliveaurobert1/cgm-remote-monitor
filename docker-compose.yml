@@ -23,13 +23,13 @@ services:
     restart: always
     depends_on:
       - mongo
-      - labels:
-          - 'traefik.enable=true'
+    labels:
+      - 'traefik.enable=true'
       # Change the below Host from `localhost` to be the web address where Nightscout is running.
       # Also change the email address in the `traefik` service below.
-          - 'traefik.http.routers.nightscout.rule=Host('myhome098.duckdns.org')'
-          - 'traefik.http.routers.nightscout.entrypoints=websecure'
-          - 'traefik.http.routers.nightscout.tls.certresolver=le'
+      - 'traefik.http.routers.nightscout.rule=Host('myhome098.duckdns.org')'
+      - 'traefik.http.routers.nightscout.entrypoints=websecure'
+      - 'traefik.http.routers.nightscout.tls.certresolver=le'
     logging: *default-logging
     environment:
       ### Variables for the container
