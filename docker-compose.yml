@@ -27,7 +27,7 @@ services:
       - 'traefik.enable=true'
       # Change the below Host from `localhost` to be the web address where Nightscout is running.
       # Also change the email address in the `traefik` service below.
-      - 'traefik.http.routers.nightscout.rule=Host(`myhome098.duckdns.org`)'
+      - 'traefik.http.routers.nightscout.rule=Host(`${{ secrets.URL }}`)'
       - 'traefik.http.routers.nightscout.entrypoints=websecure'
       - 'traefik.http.routers.nightscout.tls.certresolver=le'
     logging: *default-logging
@@ -36,8 +36,8 @@ services:
       NODE_ENV: production
       TZ: EST
       CONNECT_SOURCE: dexcomshare
-      CONNECT_SHARE_ACCOUNT_NAME: rjbell123
-      CONNECT_SHARE_PASSWORD: r47Fk@jVSt7hLc6
+      CONNECT_SHARE_ACCOUNT_NAME: ${{ secrets.CONNECT_SHARE_ACCOUNT_NAME }}
+      CONNECT_SHARE_PASSWORD: ${{ secrets.CONNECT_SHARE_PASSWORD }}
       CONNECT_SHARE_REGION: us
 
 
@@ -56,7 +56,7 @@ services:
       MONGO_CONNECTION: mongodb://mongo:27017/nightscout
 
       # API_SECRET - A secret passphrase that must be at least 12 characters long.
-      API_SECRET: regCTkjLRPTT
+      API_SECRET: ${{ secrets.API_SECRET }}
 
       ### Features
       # ENABLE - Used to enable optional features, expects a space delimited list, such as: careportal rawbg iob
@@ -85,7 +85,7 @@ services:
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
       - '--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json'
       # Change the below to match your email address
-      - '--certificatesresolvers.le.acme.email=belliveau.robert1@gmail.com'
+      - '--certificatesresolvers.le.acme.email=${{ secrets.EMAIL }}'
     ports:
       - '443:443'
       - '80:80'
