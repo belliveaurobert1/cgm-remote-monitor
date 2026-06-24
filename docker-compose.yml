@@ -41,10 +41,15 @@ services:
       ### Variables for the container
       NODE_ENV: production
       TZ: EST
+      - CONNECT_SHARE_ACCOUNT_NAME=${CONNECT_SHARE_ACCOUNT_NAME}
+      - CONNECT_SHARE_PASSWORD=${CONNECT_SHARE_PASSWORD}
+      - API_SECRET=${API_SECRET}
+      - EMAIL=${EMAIL}
       CONNECT_SOURCE: dexcomshare
       CONNECT_SHARE_ACCOUNT_NAME: ${localEnv:CONNECT_SHARE_ACCOUNT_NAME}
       CONNECT_SHARE_PASSWORD: ${localEnv:CONNECT_SHARE_PASSWORD}
       CONNECT_SHARE_REGION: us
+      
 
 
       ### Overridden variables for Docker Compose setup
