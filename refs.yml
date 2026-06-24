@@ -1,6 +1,4 @@
 env:
   MONGODB_URI: "mongodb://mongo:27017/nightscout"
-  API_SECRET: $${{ secrets.API_SECRET }}
+  API_SECRET: regCTkjLRPTT
   DISPLAY_UNITS: "mg/dl"
-  CONNECT_SHARE_ACCOUNT_NAME: $${{ secrets.CONNECT_SHARE_ACCOUNT_NAME }}
-  CONNECT_SHARE_PASSWORD: $${{ secrets.CONNECT_SHARE_PASSWORD }}
