@@ -103,6 +103,5 @@ services:
     logging: *default-logging
 networks:
   nightscout:
-    name: plex-vlan
-    driver: macvlan
+    name: 33e812be14c6478ffef3423e5acb20279bc4963cf83611d385f1e689beab441d
     external: true
