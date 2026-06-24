@@ -46,8 +46,8 @@ services:
       - API_SECRET=${API_SECRET}
       - EMAIL=${EMAIL}
       CONNECT_SOURCE: dexcomshare
-      CONNECT_SHARE_ACCOUNT_NAME: ${localEnv:CONNECT_SHARE_ACCOUNT_NAME}
-      CONNECT_SHARE_PASSWORD: ${localEnv:CONNECT_SHARE_PASSWORD}
+      CONNECT_SHARE_ACCOUNT_NAME: ${CONNECT_SHARE_ACCOUNT_NAME}
+      CONNECT_SHARE_PASSWORD: ${CONNECT_SHARE_PASSWORD}
       CONNECT_SHARE_REGION: us
       
 
@@ -67,7 +67,7 @@ services:
       MONGO_CONNECTION: mongodb://mongo:27017/nightscout
 
       # API_SECRET - A secret passphrase that must be at least 12 characters long.
-      API_SECRET: ${localEnv:API_SECRET}
+      API_SECRET: ${API_SECRET}
 
       ### Features
       # ENABLE - Used to enable optional features, expects a space delimited list, such as: careportal rawbg iob
@@ -96,7 +96,7 @@ services:
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
       - '--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json'
       # Change the below to match your email address
-      - '--certificatesresolvers.le.acme.email=${localEnv:EMAIL}'
+      - '--certificatesresolvers.le.acme.email=${EMAIL}'
     ports:
       - '443:443'
       - '80:80'
