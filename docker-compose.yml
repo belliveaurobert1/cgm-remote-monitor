@@ -81,7 +81,7 @@ services:
 
   traefik:
     image: traefik:latest
-    restart: never
+    restart: no
     container_name: 'traefik'
     command:
       - '--providers.docker=true'
