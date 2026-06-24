@@ -23,7 +23,7 @@ services:
         dns:
           - 10.187.42.1
      ports: 
-      - "1337:1337"
+       - "1337:1337"
     container_name: nightscout
     restart: always
     depends_on:
