@@ -91,7 +91,7 @@ services:
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
       - '--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json'
       # Change the below to match your email address
-      - '--certificatesresolvers.le.acme.email=belliveau.robert1@gmail.com'
+      - '--certificatesresolvers.le.acme.email=null'
     ports:
       - '443:443'
       - '80:80'
