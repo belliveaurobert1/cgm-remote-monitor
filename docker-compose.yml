@@ -10,8 +10,6 @@ x-logging:
 services:
   mongo:
     image: mongo:4.4
-    networks:
-      - nightscout
     restart: always
     volumes:
       - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
@@ -19,10 +17,10 @@ services:
 
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
-    networks:
-      - nightscout
     ports: 
       - "1337:1337"
+    networks:
+      - nightscout
     container_name: nightscout
     restart: always
     depends_on:
@@ -57,7 +55,7 @@ services:
       # The default connects to the `mongo` included in this docker-compose file.
       # If you change it, you probably also want to comment out the entire `mongo` service block
       # and `depends_on` block above.
-      MONGO_CONNECTION: mongodb://10.187.42.10:27017/nightscout
+      MONGO_CONNECTION: mongodb://mongo:27017/nightscout
 
       # API_SECRET - A secret passphrase that must be at least 12 characters long.
       API_SECRET: regCTkjLRPTT
