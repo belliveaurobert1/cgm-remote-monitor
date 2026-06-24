@@ -98,5 +98,5 @@ services:
     logging: *default-logging
 networks:
   nightscout:
-    external:
-      name: Docker-Vlans
+    name: Docker-Vlans
+    external: true
