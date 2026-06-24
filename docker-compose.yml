@@ -24,7 +24,7 @@ services:
     depends_on:
       - mongo
     labels:
-      - 'traefik.enable=true'
+      - 'traefik.enable=false'
       # Change the below Host from `localhost` to be the web address where Nightscout is running.
       # Also change the email address in the `traefik` service below.
       - 'traefik.http.routers.nightscout.rule=Host(`${{ secrets.URL }}`)'
