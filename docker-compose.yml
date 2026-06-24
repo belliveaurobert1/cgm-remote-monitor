@@ -25,7 +25,8 @@ services:
         ipv4_address: 10.187.42.2
       default:
     ports: 
-      - "10.187.42.2:1337:1337"
+      #- "10.187.42.2:1337:1337"
+      - "1337:1337"
     container_name: nightscout
     restart: always
     depends_on:
