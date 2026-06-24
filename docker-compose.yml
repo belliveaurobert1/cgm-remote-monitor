@@ -39,7 +39,7 @@ services:
     logging: *default-logging
     environment:
       ### Variables for the container
-      NODE_ENV: production
+      NODE_ENV: secrets
       TZ: EST
       CONNECT_SOURCE: dexcomshare
       CONNECT_SHARE_ACCOUNT_NAME: ${{ secrets.CONNECT_SHARE_ACCOUNT_NAME }}
