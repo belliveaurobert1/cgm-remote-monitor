@@ -19,14 +19,14 @@ services:
 
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
-    mac_address: "2a:37:f2:41:47:87"
+    #mac_address: "2a:37:f2:41:47:87"
     networks:
       nightscout:
         #ipv4_address: 10.187.42.2
       #default:
     ports: 
-      - "1337:10.187.42.2:1337"
-      #- "1337:1337"
+      #- "10.187.42.2:1337:1337"
+      - "1337:1337"
     container_name: nightscout
     restart: always
     depends_on:
