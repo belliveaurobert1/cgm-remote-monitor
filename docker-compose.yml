@@ -104,4 +104,5 @@ services:
 networks:
   nightscout:
     name: plex-vlan
+    driver: macvlan
     external: true
