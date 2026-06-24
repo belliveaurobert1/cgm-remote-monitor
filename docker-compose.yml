@@ -101,5 +101,5 @@ services:
     logging: *default-logging
 networks:
   nightscout:
-    name: Docker-Vlans
+    name: plex-vlan
     external: true
