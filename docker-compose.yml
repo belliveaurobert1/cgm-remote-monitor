@@ -10,6 +10,8 @@ x-logging:
 services:
   mongo:
     image: mongo:4.4
+    networks:
+      - nightscout
     restart: always
     volumes:
       - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
@@ -17,6 +19,8 @@ services:
 
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
+    networks:
+      - nightscout
     ports: 
       - "1337:1337"
     container_name: nightscout
@@ -70,9 +74,7 @@ services:
 
       # For all other settings, please refer to the Environment section of the README
       # https://github.com/nightscout/cgm-remote-monitor#environment
-  networks:
-    external:
-      name: Docker-Vlans
+
   traefik:
     image: traefik:latest
     restart: always
@@ -95,3 +97,7 @@ services:
       - './letsencrypt:/letsencrypt'
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
     logging: *default-logging
+networks:
+  nightscout:
+    external: true
+      name: Docker-Vlans
