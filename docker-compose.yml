@@ -10,6 +10,8 @@ x-logging:
 services:
   mongo:
     image: mongo:4.4
+    networks:
+      - nightscout
     restart: always
     volumes:
       - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
