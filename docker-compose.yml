@@ -37,7 +37,7 @@ services:
       - 'traefik.http.routers.nightscout.entrypoints=websecure'
       - 'traefik.http.routers.nightscout.tls.certresolver=le'
     logging: *default-logging
-    environment: secrets
+    environment:
       ### Variables for the container
       NODE_ENV: production
       TZ: EST
