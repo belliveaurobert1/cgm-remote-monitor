@@ -20,7 +20,7 @@ services:
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
     networks:
-      plex-vlan:
+      nightscout:
         ipv4_address: 10.187.42.2
       default:
     ports: 
@@ -100,6 +100,6 @@ services:
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
     logging: *default-logging
 networks:
-  plex-vlan:
+  nightscout:
     name: plex-vlan
     external: true
