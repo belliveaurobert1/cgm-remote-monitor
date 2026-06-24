@@ -18,9 +18,10 @@ services:
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
     ports: 
-      - "1337:1337"
+      - "10.187.42.2:1337:1337"
     networks:
-      - nightscout
+      nightscout:
+        ipv4_address: 10.187.42.2
     container_name: nightscout
     restart: always
     depends_on:
