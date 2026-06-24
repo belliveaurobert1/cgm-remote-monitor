@@ -10,6 +10,8 @@ x-logging:
 services:
   mongo:
     image: mongo:4.4
+    networks:
+      - nightscout_default:
     restart: always
     volumes:
       - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
@@ -18,8 +20,9 @@ services:
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
     networks:
-      nightscout:
+      - nightscout:
         ipv4_address: 10.187.42.2
+      - nightscout_default:
     ports: 
       - "1337:1337"
     container_name: nightscout
