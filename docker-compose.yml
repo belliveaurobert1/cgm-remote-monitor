@@ -71,8 +71,9 @@ services:
       # For all other settings, please refer to the Environment section of the README
       # https://github.com/nightscout/cgm-remote-monitor#environment
   networks:
+    default:
       external: true
-      name: Docker-Vlans
+        name: Docker-Vlans
   traefik:
     image: traefik:latest
     restart: always
