@@ -81,7 +81,7 @@ services:
 
   traefik:
     image: traefik:latest
-    restart: always
+    restart: never
     container_name: 'traefik'
     command:
       - '--providers.docker=true'
@@ -103,5 +103,5 @@ services:
     logging: *default-logging
 networks:
   nightscout:
-    name: 33e812be14c6478ffef3423e5acb20279bc4963cf83611d385f1e689beab441d
+    name: plex-vlan
     external: true
