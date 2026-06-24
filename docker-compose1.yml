@@ -10,6 +10,8 @@ x-logging:
 services:
   mongo:
     image: mongo:4.4
+    networks:
+      default:
     restart: always
     volumes:
       - ${NS_MONGO_DATA_DIR:-./mongo-data}:/data/db:cached
@@ -17,17 +19,21 @@ services:
 
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
+    networks:
+      nightscout:
+        ipv4_address: 10.187.42.2
+      default:
     ports: 
-      - "1337:1337"
+      - "10.187.42.2:1337:1337"
     container_name: nightscout
     restart: always
     depends_on:
       - mongo
     labels:
-      - 'traefik.enable=true'
+      - 'traefik.enable=false'
       # Change the below Host from `localhost` to be the web address where Nightscout is running.
       # Also change the email address in the `traefik` service below.
-      - 'traefik.http.routers.nightscout.rule=Host(`${{ secrets.URL }}`)'
+      - 'traefik.http.routers.nightscout.rule=Host(`localhost`)'
       - 'traefik.http.routers.nightscout.entrypoints=websecure'
       - 'traefik.http.routers.nightscout.tls.certresolver=le'
     logging: *default-logging
@@ -93,3 +99,7 @@ services:
       - './letsencrypt:/letsencrypt'
       - '/var/run/docker.sock:/var/run/docker.sock:ro'
     logging: *default-logging
+networks:
+  nightscout:
+    name: Docker-Vlans
+    external: true
