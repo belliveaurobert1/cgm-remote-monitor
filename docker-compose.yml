@@ -39,7 +39,7 @@ services:
     logging: *default-logging
     environment:
       ### Variables for the container
-      NODE_ENV: secrets
+      NODE_ENV: production
       TZ: EST
       CONNECT_SOURCE: dexcomshare
       CONNECT_SHARE_ACCOUNT_NAME: $${{ secrets.CONNECT_SHARE_ACCOUNT_NAME }}
@@ -63,7 +63,7 @@ services:
       MONGO_CONNECTION: mongodb://mongo:27017/nightscout
 
       # API_SECRET - A secret passphrase that must be at least 12 characters long.
-      API_SECRET: $${{ secrets.API_SECRET }}
+      API_SECRET: ${{ secrets.API_SECRET }}
 
       ### Features
       # ENABLE - Used to enable optional features, expects a space delimited list, such as: careportal rawbg iob
@@ -92,7 +92,7 @@ services:
       - "--certificatesresolvers.le.acme.httpchallenge.entrypoint=web"
       - '--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json'
       # Change the below to match your email address
-      - '--certificatesresolvers.le.acme.email=$${{ secrets.EMAIL }}'
+      - '--certificatesresolvers.le.acme.email=null'
     ports:
       - '443:443'
       - '80:80'
