@@ -103,3 +103,5 @@ networks:
   nightscout:
     name: Docker-Vlans
     external: true
+  nightscout_default:
+    isolated: true
