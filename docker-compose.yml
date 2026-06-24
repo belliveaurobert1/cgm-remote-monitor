@@ -20,8 +20,6 @@ services:
     networks:
       nightscout:
         ipv4_address: 10.187.42.2
-        dns:
-          - 10.187.42.1
     ports: 
       - "1337:1337"
     container_name: nightscout
