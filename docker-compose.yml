@@ -19,6 +19,7 @@ services:
 
   nightscout:
     image: nightscout/cgm-remote-monitor:latest
+    mac_address: "2a:37:f2:41:47:87"
     networks:
       nightscout:
         ipv4_address: 10.187.42.2
